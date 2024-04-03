@@ -1,0 +1,339 @@
+---
+#РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ
+#ПОЗИТИВНЫЕ ТЕСТЫ. ТЕХНИКА PAIRWISE
+- summary: |
+    Создание учетной записи с валидным email, никнеймом в 3 символа и паролем в 6 символов
+  requirement: |
+    Пользователь должен иметь возможность создать учетную запись используя email
+    Никнейм должен быть от 3 до 16 символов
+    Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+    Длина пароля от 6 до 16 символов
+    Пароль может содержать латинские буквы, цифры и спец.символы
+  prerequisites: |
+    У пользователя есть зарегистрированный email
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: |
+    nickname = Iam
+    email = iam@mail.ru
+    Password = 123456
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести повторно пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом в 3 символа и паролем в 8 символов
+  requirement: |
+   Пользователь должен иметь возможность создать учетную запись используя email
+   Никнейм должен быть от 3 до 16 символов
+   Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+   Длина пароля от 6 до 16 символов
+   Пароль может содержать латинские буквы, цифры и спец.символы
+  prerequisites:
+    У пользователя есть зарегистрированный email
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+  test-data: |
+    nickname = 111
+    email = 111@mail.ru
+    Password = 123456aB
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести повторно пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом из 8 символов и паролем из 16 символов
+  requirement: |
+   Пользователь должен иметь возможность создать учетную запись используя email
+   Никнейм должен быть от 3 до 16 символов
+   Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+   Длина пароля от 6 до 16 символов
+   Пароль может содержать латинские буквы, цифры и спец.символы
+  prerequisites:
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = Ivan_123
+    email = ivan123@gmail.com
+    Password = fie*bux8273NO1#3
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом из 16 символов и паролем из 16 символов
+  requirement: |
+   Пользователь должен иметь возможность создать учетную запись используя email
+   Никнейм должен быть от 3 до 16 символов
+   Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+   Длина пароля от 6 до 16 символов
+   Пароль может содержать латинские буквы, цифры и спец.символы
+  prerequisites:
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    У пользователя есть email
+  test-data: |
+    nickname = us3r_D12Hs18nC_a
+    email = user3@mail.ru
+    Password = 123456!vX*aVx23<
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+    Открылась страница https://codebattle.hexlet.io/#lobby
+
+#НЕГАТИВНЫЕ ТЕСТЫ
+- summary: |
+    Создание учетной записи с пустым полем nickname
+  requirement: |
+   Никнейм должен быть от 3 до 16 символов
+  prerequisites:
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    У пользователя есть email
+  test-data: |
+    nickname = no data
+    email = mail@mail.ru
+    Password = 123456
+  steps:
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидируется поле nickname
+    Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Создание учетной записи с никнеймом из 2 символов
+  requirement: |
+    Никнейм должен быть от 3 до 16 символов
+    Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+    Никнейм должен начинаться только с латинской буквы
+  prerequisites:
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = !Я
+    email = test@mail.ru
+    Password = fRvkx23*&
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидируется поле nickname
+    Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Создание учётной записи с никнеймом из 17 символов
+  requirement: |
+   Никнейм должен быть от 3 до 16 символов
+   Никнейм может содержать только латинские буквы, цифры и знак подчеркивания
+   Никнейм должен начинаться только с латинской буквы
+  prerequisites:
+    В браузере открыта страница https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = Petr_Petrovich_12
+    email = petr@mail.ru
+    Password = fRvkx23*&
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+   Валидируется поле nickname
+   Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Регистрация пользователя с пустым полем email
+  requirement: |
+   Пользователь должен иметь возможность создать учетную запись используя email
+  prerequisites:
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = Vova
+    email = no data
+    Password = 1234569
+  steps:
+    - Ввести никнейм
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать кнопку Sumbit
+  expected-result: |
+   Валидируется поле email
+   Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Регистрация пользователя с не валидным email
+  requirement: |
+   Пользователь должен иметь возможность создать учетную запись используя email
+  prerequisites:
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = Gomer
+    email = gomermail.com
+    Password = 1234569
+  steps:
+    - Ввести никнейм
+    - Ввести email
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать кнопку Submit
+  expected-result: |
+   Валидируется поле email
+   Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Регистрация пользователя с пустыми полями password, Password confirmation
+  requirement: |
+   Длина пароля от 6 до 16 символов
+   Пароль может содержать латинские, кириллические буквы, цифры и спец.символы
+  prerequisites:
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = User312
+    email = user@bk.ru
+    Password = no data
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Нажать на кнопку Submit
+  expected-result: |
+   Валидируются поля Password, Password Confirmation
+   Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+
+- summary: |
+    Регистрация пользователя с паролем из 5 символов
+  requirement: |
+   Длина пароля от 6 до 16 символов
+  prerequisites:
+     У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = player
+    email = player@bk.ru
+    Password = K3&2z
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести повторно пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+   Валидирует поле Password
+   Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+- summary: |
+    Регистрация пользователя с паролем из 17 символов
+  requirement: |
+   Длина пароля от 6 до 16 символов
+  prerequisites:
+    У пользователя есть зарегистрированный email
+  test-data: |
+    nickname = toster
+    email = tos@mail.com
+    Password = 123456раст672^vx1
+  steps:
+    - Ввести никнейм
+    - Ввести почту
+    - Ввести пароль
+    - Ввести пароль повторно
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидирует поле Password
+    Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
+
+#АВТОРИЗАЦИЯ
+#ПОЗИТИВНЫЕ ТЕСТЫ
+- summary: |
+    
+  requirement: |
+   
+  prerequisites:
+    
+  test-data: |
+    
+  steps:
+    - 
+    - 
+    - 
+  expected-result: |
+
+- summary: |
+    
+  requirement: |
+   
+  prerequisites:
+    
+  test-data: |
+    
+  steps:
+    - 
+    - 
+    - 
+  expected-result: |
+
+- summary: |
+    
+  requirement: |
+   
+  prerequisites:
+    
+  test-data: |
+    
+  steps:
+    - 
+    - 
+    - 
+  expected-result: |
+
+
+- summary: |
+    
+  requirement: |
+   
+  prerequisites:
+    
+  test-data: |
+    
+  steps:
+    - 
+    - 
+    - 
+  expected-result: |
+
+
+- summary: |
+    
+  requirement: |
+   
+  prerequisites:
+    
+  test-data: |
+    
+  steps:
+    - 
+    - 
+    - 
+  expected-result: |
+    
