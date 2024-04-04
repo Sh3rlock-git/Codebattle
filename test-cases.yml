@@ -1,6 +1,6 @@
 ---
 #РЕГИСТРАЦИЯ ПОЛЬЗОВАТЕЛЯ
-#ПОЗИТИВНЫЕ ТЕСТЫ. ТЕХНИКА PAIRWISE
+#ПОЗИТИВНЫЕ ТЕСТ-КЕЙСЫ. ТЕХНИКА PAIRWISE
 - summary: |
     Создание учетной записи с валидным email, никнеймом в 3 символа и паролем в 6 символов
   requirement: |
@@ -97,7 +97,7 @@
   expected-result: |
     Открылась страница https://codebattle.hexlet.io/#lobby
 
-#НЕГАТИВНЫЕ ТЕСТЫ
+#НЕГАТИВНЫЕ ТЕСТ-КЕЙСЫ
 - summary: |
     Создание учетной записи с пустым полем nickname
   requirement: |
@@ -264,35 +264,150 @@
     Не происходит редирект на страницу https://codebattle.hexlet.io/users/new?locale=en&next=%2F
 
 #АВТОРИЗАЦИЯ
-#ПОЗИТИВНЫЕ ТЕСТЫ
+#ПОЗИТИВНЫЕ ТЕСТ-КЕЙСЫ
 - summary: |
-    
+    Авторизация с валидной парой email:password
   requirement: |
-   
+   Пользователь должен иметь возможность войти в зарегистрированную учетную запись с помощью пары email:passowrd
   prerequisites:
-    
+    У пользователя есть зарегистрированный аккаунт
+  test-data: |
+    email = user@mail.ru
+    password = Inv23*2sacv
+  steps:
+    - Ввести почту
+    - Ввести пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+   Редирект на страницу https://codebattle.hexlet.io/#lobby
+
+
+- summary: |
+    Авторизация через аккаунт Github
+  requirement: |
+   Пользователь должен иметь возможность авторизоваться на сайте через учетную запись Github
+  prerequisites:
+    У пользователя есть зарегистрированный аккаунт на Github
+    Пользователь авторизован в аккаунте Github
+  test-data: |
+    no data
+  steps:
+    - Кникнуть на кнопку Sign in with Github
+    - Согласиться с предоставлением доступа к данным аккаунта Github
+  expected-result: |
+    Редирект на страницу https://codebattle.hexlet.io/#lobby
+    В качестве никнейма пользователя отображается никнейм аккаунта Github
+
+- summary: |
+    Авторизация через аккаунт Discord
+  requirement: |
+   Пользователь должен иметь возможность авторизоваться на сайте через учетную запись Discord
+  prerequisites:
+    У пользователя есть зарегистрированный аккаунт Discord
+    Пользователь авторизован в аккаунте Discord
+  test-data: |
+    no data
+  steps:
+    - Кликнуть на кнопку Sign in with Discord
+    - Нажать на кнопку Авторизовать в окне запроса предоставления доступа к аккаунту
+  expected-result: |
+    Редирект на страницу https://codebattle.hexlet.io/#lobby
+    В качестве никнейма пользователя отображается никнейм аккаунта Discord
+
+#НЕГАТИВНЫЕ ТЕСТ-КЕЙСЫ
+- summary: |
+    Авторизация с пустым полем email и валидным паролем
+  requirement: |
+   Пользователь должен иметь возможность войти в зарегистрированную учетную запись с помощью пары email:passowrd
+  prerequisites:
+    У пользователя есть зарегистрированная учетная запись
+  test-data: |
+    email = no data
+    password = 123456
+  steps:
+    - Ввести пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидирует поле email
+    Не происходит редирект на страницу https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Авторизация с валидным email и пустым полем password
+  requirement: |
+    Пользователь должен иметь возможность войти в зарегистрированную учетную запись с помощью пары email:passowrd
+  prerequisites:
+    У пользователя есть зарегистрированная учетная запись
+  test-data: |
+    email = vova@bk.ru
+    password = no data
+  steps:
+    - Ввести почту
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидирует поле password
+    Не происходит редирект на страницу https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Авторизация с невалидным email и password
+  requirement: |
+   Пользователь должен иметь возможность войти в зарегистрированную учетную запись с помощью пары email:passowrd
+  prerequisites:
+    no data
+  test-data: |
+    email = 12rtgmail.com
+    password = !zx
+  steps:
+    - Ввести почту
+    - Ввести пароль
+    - Нажать на кнопку Submit
+  expected-result: |
+    Валидируют поля email, passowrd
+    Не происходит редирект на страницу https://codebattle.hexlet.io/#lobby
+
+#ВОССТАНОВЛЕНИЕ ПАРОЛЯ
+- summary: |
+    Успешное восстановление пароля учетной записи
+  requirement: |
+    Пользователь должен иметь возможность восстановить пароль от учетной записи
+  prerequisites:
+    У пользователя зарегистрирована учетная запись при помощи валидного email
   test-data: |
     
   steps:
-    - 
-    - 
-    - 
+    - Нажать на кнопку Forgot your password
+    - Ввести почту регистрации аккаунта
+    - Нажать на кнопку Submit
+    - Открыть письмо в почтовом клиенте с темой Reset your password for Codebattle
+    - Перейти по ссылке из письма
+    - Ввести новый пароль в окне reset your password
+    - Нажать на кнопку Save
+    - Перейти по ссылке https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    - Ввести почту
+    - Ввести новый пароль
+    - Нажать на кнопку Submit
   expected-result: |
+    Редирект на страницу https://codebattle.hexlet.io/#lobby
+    В качестве никнейма аккаунта отображается никней аккаунта пользователя
 
 - summary: |
-    
+    Восстановление пароля на почту отличную от почты регистрации учетной записи
   requirement: |
-   
+    Сайт должен быть безопасным и защищать данные пользователя
   prerequisites:
-    
+    У пользователя зарегистрирована учетная запись при помощи валидного email
   test-data: |
-    
+    email аккаунта = swmrovp513@1secmail.ru
+    email для восстановления пароля = dugtycpsx@likemovie.net
   steps:
-    - 
-    - 
-    - 
+    - Нажать на кнопку Forgot your password
+    - Ввести почту для восстановления пароля
+    - Нажать на кнопку Submit
   expected-result: |
+    Валидирует поле email (email_not_found)
+    Письмо с ссылкой для восстановления не приходит на указанную почту
 
+#ИГРА
+#ПОЗИТИВНЫЕ ТЕСТ-КЕЙСЫ
 - summary: |
     
   requirement: |
