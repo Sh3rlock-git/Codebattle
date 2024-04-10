@@ -1,0 +1,244 @@
+---
+- summary: |
+    Создание учетной записи с валидным email, никнеймом в 3 символа и паролем в 6 символов
+  status: pass
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом в 3 символа и паролем в 8 символов
+  status: pass
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом из 8 символов и паролем из 16 символов
+  status: pass
+
+- summary: |
+    Создание учетной записи с валидным email, никнеймом из 16 символов и паролем из 16 символов
+  status: pass
+
+- summary: |
+    Создание учетной записи с пустым полем nickname
+  status: pass
+
+- summary: |
+    Создание учетной записи с никнеймом из 2 символов
+  status: pass
+
+- summary: |
+    Создание учётной записи с никнеймом из 17 символов
+  status: pass
+
+- summary: |
+    Регистрация пользователя с пустым полем email
+  status: pass
+
+- summary: |
+    Регистрация пользователя с не валидным email
+  status: pass
+
+- summary: |
+    Регистрация пользователя с пустыми полями password, Password confirmation
+  status: pass
+
+- summary: |
+     Регистрация пользователя с паролем из 5 символов
+  status: pass
+
+- summary: |
+    Регистрация пользователя с паролем из 17 символов
+  status: pass
+
+- summary: |
+     Авторизация с валидной парой email:password
+  status: pass
+
+- summary: |
+    Авторизация через аккаунт Github
+  status: pass
+
+- summary: |
+    Авторизация через аккаунт Discord
+  status: pass
+
+- summary: |
+    Авторизация с пустым полем email и валидным паролем
+  status: pass
+
+- summary: |
+    Авторизация с валидным email и пустым полем password
+  status: pass
+
+- summary: |
+    Авторизация с невалидным email и password
+  status: pass
+
+- summary: |
+    Успешное восстановление пароля учетной записи
+  status: pass
+
+- summary: |
+    Восстановление пароля на почту отличную от почты регистрации учетной записи
+  status: pass
+  
+- summary: |
+    Logout из аккаунта
+  status: pass
+
+- summary: |
+    Создание игры с ботом с главной страницы без авторизации
+  status: pass
+
+- summary: |
+    Создание игры с ботом level 1
+  status: pass
+
+- summary: |
+    Создание игры с ботом level 2
+  status: pass
+
+- summary: |
+    Создание игры с ботом level 3
+  status: pass
+
+- summary: |
+    Создание игры с ботом level 4
+  status: pass
+
+- summary: |
+     Создание игры с другим пользователем 
+  status: pass
+
+- summary: |
+     Создание игры с другим пользователем level 2
+  status: pass
+
+- summary: |
+    Создание игры с другим пользователем level 3
+  status: pass
+
+- summary: |
+    Создание игры с другом, level 1
+  status: pass
+
+- summary: |
+     Создание игры с другом, level 2
+  status: pass
+
+- summary: |
+    Отмена созданного инвайта на игру с другом
+  status: pass
+
+- summary: |
+    Принять инвайт на игру от друга
+  status: pass
+
+- summary: |
+    Отказаться от игры по приглашению от друга
+  status: pass
+
+- summary: |
+    Отмена созданной игры с другим пользователем
+  status: pass
+
+- summary: |
+    Присоединиться к текущей игре в качестве участника
+  status: pass
+
+- summary: |
+    Присоединиться к созданной игре в качестве зрителя
+  status: pass
+
+- summary: |
+     Создание второй игры подряд одним пользователем
+  status: pass
+
+- summary: |
+    Отправка сообщения в общий чат на главной странице сайта
+  status: pass
+
+- summary: |
+    Отправка сообщения в приватный чат с пользователем
+  status: pass
+
+- summary: |
+     Автоматическое завершение игры через заданный интервал времени
+  status: pass
+
+- summary: |
+    Завершение игры путём сдачи
+  status: pass
+
+- summary: |
+    Выбор языка программирования из дропдауна
+  status: pass
+
+- summary: |
+    Смена темы редактора кода
+  status: pass
+
+- summary: |
+    Сброс написанного кода
+  status: pass
+
+- summary: |
+    Отправка сообщения в чат в режиме игры
+  status: pass
+
+- summary: |
+    Выбор языка описания задачи в режиме активной игры
+  status: pass
+
+- summary: |
+    Открыть описание задачи в отдельном окне  
+  status: pass
+
+- summary: |
+    Возврат на домашнюю страницу  из интерфейса игры
+  status: pass
+
+- summary: |
+    Просмотр кода оппонента в режиме текущей игры
+  status: pass
+
+- summary: |
+    Просмотр истории батла пользователем без premium доступа
+  status: pass
+
+- summary: |
+    Просмотр вкладки lobby
+  status: pass
+
+- summary: |
+    Просмотр вкладки tournaments
+  status: pass
+
+- summary: |
+    Просмотр вкладки History
+  status: pass
+
+- summary: |
+    Просмотр рейтинга пользователей за месяц, неделю, все время
+  status: pass
+
+- summary: |
+    Просмотр top list пользователей игры
+  status: pass
+
+- summary: |
+    Просмотр статистики профиля
+  status: pass
+
+- summary: |
+    Просмотр вкладки completed games
+  status: pass
+
+- summary: |
+    Изменение никнейма аккаунта, языка программирования и клана
+  status: pass
+
+- summary: |
+    Изменение типа звуковых уведомлений и их уровня громкости
+  status: pass
+
+- summary: |
+    Отключение звуковых уведомлений
+  status: pass
